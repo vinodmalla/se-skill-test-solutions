@@ -23,7 +23,3 @@ A project management REST API with a simple frontend, built with Node.js/Express
 ## Assignment
 
 **Refer to the Skill Test Assignment document sent to you separately for full instructions, tasks, submission details, and evaluation criteria.**
-
-## Contact
-
-If you have questions about the assignment, contact `dan.kirby@jrnyservices.com` or `utsav.devani@jrnyservices.com`.
