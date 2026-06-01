@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = "super_secret_key_123";
+// fixed — credentials from environment variables
+const JWT_SECRET = process.env.JWT_SECRET;
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers['authorization'];
