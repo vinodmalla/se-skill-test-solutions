@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 // fixed — credentials from environment variables
-const JWT_SECRET = process.env.JWT_SECRET;
+//const JWT_SECRET = process.env.JWT_SECRET;
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -11,7 +11,7 @@ function authMiddleware(req, res, next) {
     return res.status(401).json({ error: 'No token provided' });
   }
 
-  jwt.verify(token, JWT_SECRET, (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({ error: 'Invalid token' });
     }

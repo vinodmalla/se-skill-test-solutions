@@ -6,11 +6,11 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 
 // fixed — credentials from environment variables
-const JWT_SECRET = process.env.JWT_SECRET;
+//const JWT_SECRET = process.env.JWT_SECRET;
 
 // helper for generating tokens
 function makeToken(user) {
-  return jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '24h' });
+  return jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN || '24h' });
 }
 
 router.post('/register', async (req, res) => {
@@ -49,7 +49,7 @@ if (!emailRegex.test(email)) {
     const token = makeToken(user);
     res.status(201).json({ user, token });
   } catch (err) {
-    res.status(500).json({ error: err.message }); //bug 9 --stack: err.stack exposes sensitive info, so we should remove it from the error response to avoid potential security risks.
+    res.status(500).json({ error: "Internal server error" }); //bug 9 --stack: err.stack exposes sensitive info, so we should remove it from the error response to avoid potential security risks.
   }
 });
 router.post('/login', async (req, res) => {
@@ -87,7 +87,7 @@ router.post('/login', async (req, res) => {
     const token = makeToken(user);
     res.json({ user: { id: user.id, username: user.username, email: user.email }, token });
   } catch (err) {
-    console.error('Login error:', err.message);
+   // console.error('Login error:', err.message);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

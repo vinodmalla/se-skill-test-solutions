@@ -1,5 +1,6 @@
 
-const API = '';
+ // Smart API base — works in both development and production
+const API = window.location.hostname === 'localhost' ? '' : '/api';
 let token = localStorage.getItem('token');
 let allTasks = [];
 let editingTaskId = null;
