@@ -1,0 +1,24 @@
+# Dependencies — reinstalled inside container
+node_modules
+
+# Git
+.git
+.gitignore
+
+# Environment variables — never copy secrets into image
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Build artefacts
+dist/
+build/
+
+# Dev files not needed in production
+README.md
+Dockerfile
+.dockerignore
