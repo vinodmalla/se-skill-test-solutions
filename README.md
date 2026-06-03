@@ -275,4 +275,5 @@ parameterised queries we have are already safe.
 **CORS is open in development:** To make local development easy, all 
 origins are allowed in development mode. In production, only the domain 
 set in `ALLOWED_ORIGIN` is allowed.
-```
+
+<!-- CI/CD test -->
